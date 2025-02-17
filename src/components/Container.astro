@@ -1,0 +1,56 @@
+---
+const { content } = Astro.props
+---
+
+<div class="container-wrapper">
+  {
+    content.map((chapter) => {
+      return (
+        <div class="container">
+          <h2>{chapter.name}</h2>
+          <ul>
+            {chapter.subchapter.map((subchapter) => {
+              return (
+                <li>
+                  <a
+                    href={
+                      '/Inhalt/' + chapter.name + '/' + subchapter
+                    }
+                  >
+                    {subchapter}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      )
+    })
+  }
+</div>
+
+<style>
+  h2 {
+    font-size: 1.2rem;
+    color: var(--sec);
+  }
+  .container-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+  }
+  .container {
+    padding: 10px 20px;
+    width: 70%;
+    max-width: 400px;
+    border-radius: 10px;
+    background-color: #252525;
+  }
+  li,
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+</style>

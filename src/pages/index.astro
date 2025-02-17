@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../components/Container.astro'
+import Header from '../components/Header.astro'
+
+const posts = import.meta.glob('../pages/Inhalt/**/*.md')
+const content = Object.keys(posts).map((path) => {
+  const parts = path.split('/')
+  return {
+    chapter: parts[parts.length - 2],
+    subchapter: parts[parts.length - 1].split('.md')[0],
+  }
+})
+
+const structuredArray = Object.values(
+  content.reduce((acc, { chapter, subchapter }) => {
+    if (!acc[chapter]) {
+      acc[chapter] = { name: chapter, subchapter: [] }
+    }
+    acc[chapter].subchapter.push(subchapter)
+    return acc
+  }, {})
+)
+---
+
+<Layout>
+  <Container content={structuredArray} />
+</Layout>
