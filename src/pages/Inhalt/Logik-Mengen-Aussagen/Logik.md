@@ -1,5 +1,10 @@
 ---
-layout: '../../../layouts/MdLayout.astro'
+layout: '../../../layouts/LessonLayout.astro'
+chapter: 'Logik, Aussagen, Mengen'
+lesson: 'Aussagen'
+type: 'Lecture'
+num: 1
+chapterNum: 2
 ---
 
 # Logik, Mengen, Abbildungen

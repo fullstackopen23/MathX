@@ -1,5 +1,10 @@
 ---
-layout: '../../../layouts/MdLayout.astro'
+layout: '../../../layouts/LessonLayout.astro'
+chapter: 'Gruppen, Ringe, Körper'
+lesson: 'Ringe'
+type: 'Lecture'
+num: 1
+chapterNum: 1
 ---
 
 # Ringe sind toll.

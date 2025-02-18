@@ -1,0 +1,97 @@
+---
+const { content } = Astro.props
+---
+
+<div class="container-wrapper">
+  {
+    content.map((chapter) => {
+      console.log(chapter.lessons[0].path)
+      return (
+        <div class="container">
+          <div class="header">
+            <h2>{chapter.title}</h2>
+          </div>
+          <ul class="subchapters">
+            {chapter.lessons.map((lesson) => {
+              return (
+                <a href={'/Inhalt' + lesson.path.split('.md')[0]}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0"
+                  >
+                    <title>Lesson</title>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                    />
+                  </svg>
+                  <p>{lesson.title}</p>
+                </a>
+              )
+            })}
+          </ul>
+        </div>
+      )
+    })
+  }
+</div>
+
+<style>
+  .container-wrapper {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .container svg {
+    width: 1.2rem;
+  }
+
+  .container a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    transition: all 0.3s;
+    border-radius: 0.5rem;
+  }
+
+  .container a:hover {
+    background-color: rgba(255, 255, 255, 0.438);
+  }
+
+  .container {
+    color: var(--white);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--brighter);
+    border-radius: 0.5rem;
+  }
+
+  .container h2 {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+
+  .container .header {
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+  }
+
+  .container .subchapters {
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+</style>

@@ -1,28 +1,46 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Container from '../components/Container.astro'
-import Header from '../components/Header.astro'
+import CourseLayout from '../layouts/CourseLayout.astro'
+import Course from '../components/Course.astro'
 
-const posts = import.meta.glob('../pages/Inhalt/**/*.md')
-const content = Object.keys(posts).map((path) => {
-  const parts = path.split('/')
-  return {
-    chapter: parts[parts.length - 2],
-    subchapter: parts[parts.length - 1].split('.md')[0],
-  }
+// get all the Content
+const allContent = import.meta.glob('../pages/Inhalt/**/*.md', {
+  eager: true,
 })
-
-const structuredArray = Object.values(
-  content.reduce((acc, { chapter, subchapter }) => {
-    if (!acc[chapter]) {
-      acc[chapter] = { name: chapter, subchapter: [] }
+// Process content into a structured array
+const content = Object.values(allContent).map(
+  ({ frontmatter, file }) => {
+    return {
+      chapter: {
+        title: frontmatter.chapter,
+        num: frontmatter.chapterNum,
+      },
+      lesson: {
+        title: frontmatter.lesson,
+        type: frontmatter.type,
+        num: frontmatter.num,
+      },
+      path: file.split('Inhalt')[1],
     }
-    acc[chapter].subchapter.push(subchapter)
+  }
+)
+
+// Step 1: Group lessons by chapter
+const groupedChapters = Object.values(
+  content.reduce((acc, { chapter, lesson, path }) => {
+    const chapterKey = chapter.num
+    if (!acc[chapterKey]) {
+      acc[chapterKey] = { ...chapter, lessons: [] }
+    }
+    acc[chapterKey].lessons.push({ ...lesson, path })
     return acc
   }, {})
 )
+groupedChapters.sort((a, b) => a.num - b.num)
+groupedChapters.forEach((chapter) => {
+  chapter.lessons.sort((a, b) => a.num - b.num)
+})
 ---
 
-<Layout>
-  <Container content={structuredArray} />
-</Layout>
+<CourseLayout>
+  <Course content={groupedChapters} />
+</CourseLayout>
