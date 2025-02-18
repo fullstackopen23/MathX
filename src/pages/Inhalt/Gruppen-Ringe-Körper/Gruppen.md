@@ -4,7 +4,7 @@ chapter: 'Gruppen, Ringe, Körper'
 lesson: 'Gruppen'
 type: 'Lecture'
 num: 2
-chapterNum: 1
+chapterNum: 3
 ---
 
 # Header 1

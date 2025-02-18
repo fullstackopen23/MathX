@@ -8,7 +8,7 @@
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -16,6 +16,7 @@
 
 body {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
   gap: 35px;
@@ -37,4 +38,12 @@ li {
   list-style-type: none;
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  line-height: 1.64rem;
+}
+
+strong {
+  font-weight: 700;
 }

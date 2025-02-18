@@ -23,8 +23,8 @@ Durch **Definitionen** werden Begriffe festgelegt, mit denen man später arbeite
 
 Jeder Satz muss bewiesen werden. Dies ist die wichtigste und anspruchsvollste Tätigkeit in der Mathematik. Dabei werden zunächst einmal die Voraussetzungen festgehalten, anschließend die Behauptung formuliert und erst dann beginnt der eigentliche Beweis. Das Ende eines Beweises kennzeichnet man häufig mit "qed" (quod erat demonstrandum).
 
-In der Beschreibung des Terminus Satz haben wir schon an einigen Stellen von _Aussagen_ gesprochen. Da logische Aussagen die Mathematik strukturieren sind sie ein Grundpfeiler moderner Mathematik. Mit den Themen **Aussagen, Logik und Abbildungen **werden wir beginnen.
-
 ### Aufbau des Kurses
+
+In der Beschreibung des Terminus Satz haben wir schon an einigen Stellen von _Aussagen_ gesprochen. Da logische Aussagen die Mathematik strukturieren sind sie ein Grundpfeiler moderner Mathematik. Mit den Themen **Aussagen, Logik und Abbildungen** werden wir beginnen.
 
 Diese Themen sind für alle weiteren Kapitel essentiell. Danach werden **lineare Gleichungssysteme** betrachtet. Das dritte Kapitel beinhaltet algebraische Strukturen wie **Gruppen, Ringe und Körper**. Darauf basierend gehen wir zum Kapitel **Vektorräume**. Kapitel 5 handelt von **Basen und Dimensionen** von Vektorräumen. Der zentrale Begriff des sechsten Kapitels ist der der **linearen Abbildungen**. Sie sind sozusagen die Brücken zwischen Vektorräumen. Wir können lineare Abbildungen endlichdimensionaler Vektorräume bezüglich gewählter Basen mit **Matrizen** identifizieren, daher werden wir diese im Kapitel 7 genauer betrachten. Daran anschließend betrachten wir das Thema der **Matrixtransformation** und schließen den Kurs mit **Determinanten** ab.

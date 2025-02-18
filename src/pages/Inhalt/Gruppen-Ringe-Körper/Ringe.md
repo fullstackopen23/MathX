@@ -4,7 +4,7 @@ chapter: 'Gruppen, Ringe, Körper'
 lesson: 'Ringe'
 type: 'Lecture'
 num: 1
-chapterNum: 1
+chapterNum: 3
 ---
 
 # Ringe sind toll.
