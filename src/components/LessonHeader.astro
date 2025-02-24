@@ -1,0 +1,27 @@
+---
+const { chapter, lesson } = Astro.props
+---
+
+<div class="lessonHeader">
+  <h2>{chapter}</h2>
+  <h3>{lesson}</h3>
+</div>
+
+<style>
+  .lessonHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0px;
+    text-align: center;
+  }
+  .lessonHeader h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  .lessonHeader h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+</style>

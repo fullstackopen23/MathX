@@ -1,6 +1,8 @@
 ---
 import Header from '../components/Header.astro'
+import LessonHeader from '../components/LessonHeader.astro'
 import '../assets/style.css'
+const { frontmatter } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,23 +35,38 @@ import '../assets/style.css'
   <body>
     <Header />
     <div class="content">
-      <button><a href="/"><span class="material-symbols-outlined">
-        undo
-        </span>
-      </a></button>
+      <button><a href="/">Back to home
+    </a></button>
+    <LessonHeader chapter={frontmatter.chapter} lesson={frontmatter.lesson} ></LessonHeader>
       <slot />
+      <button><a href="/">Back to home
     </div>
+    </a></button>
   </body>
 </html>
 
 <style is:global>
+
+  .katex-html {
+    background-color: var(--brighter);
+    padding: 0px 2px;
+    font-weight: 300;
+    border-radius: 4px;
+  }
   button {
     border: none;
     padding: 6px 10px;
     border-radius: .4rem;
     cursor: pointer;
+    color: var(--white);
     background-color: transparent;
   }
+
+  button a {
+    font-weight: 600;
+
+  }
+
   button:hover {
     background-color: var(--brighter);
   }
@@ -63,7 +80,6 @@ import '../assets/style.css'
     max-width: 700px;
     min-height: 100vh;
     flex-direction: column;
-    align-items: flex-start;
     gap: 18px;
     min-height: 100vh;
     padding-bottom: 200px;
@@ -81,6 +97,15 @@ import '../assets/style.css'
     font-weight: 300;
   }
 
+  ol {
+    list-style-position: inside;
+  }
+
+  ul {
+    list-style-position:inside;
+    list-style-type: square;
+  }
+
   .content .markdown-alert {
     padding: 30px 40px;
     width: 100%;
@@ -88,6 +113,10 @@ import '../assets/style.css'
     flex-direction: column;
     gap: 10px;
     border-radius: 0.5rem;
+  }
+
+  .content .markdown-alert:first-of-type(p) {
+    color:  red;
   }
 
   .markdown-alert-title {
@@ -99,25 +128,13 @@ import '../assets/style.css'
     border-radius: 0rem;
     border-left: 5px solid var(--def);
   }
-  .markdown-alert-note::before {
-    content: 'Definition';
-    font-weight: 600;
-  }
-  .markdown-alert-tip::before {
-    content: 'Satz';
-    font-weight: 600;
-
-  }
+  
   .markdown-alert.markdown-alert-tip {
     background-color: var(--brighter);
     border-radius: 0rem;
     border-left: 5px solid var(--sec);
   }
-  .markdown-alert-important::before {
-    content: 'Aufgaben';
-    font-weight: 600;
 
-  }
   .markdown-alert.markdown-alert-important {
     background-color: var(--brighter);
     border-radius: 0rem;

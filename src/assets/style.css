@@ -1,9 +1,9 @@
 :root {
   --background: #101828;
-  --brighter: #1e2939;
+  --brighter: #1e293998;
   --sec: #8ec5ff;
   --sec2: rgb(2, 102, 97);
-  --white: rgb(226, 228, 232);
+  --white: #d1d5dc;
   --def: #a9792b;
 }
 
@@ -17,6 +17,7 @@
 body {
   display: flex;
   min-height: 100vh;
+  margin-bottom: 100px;
   flex-direction: column;
   align-items: center;
   gap: 35px;
@@ -35,15 +36,22 @@ main {
 
 a,
 li {
-  list-style-type: none;
   text-decoration: none;
   color: inherit;
+  font-weight: 300;
+  line-height: 1.7rem;
 }
 
 p {
-  line-height: 1.64rem;
+  line-height: 1.7rem;
 }
 
 strong {
   font-weight: 700;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
